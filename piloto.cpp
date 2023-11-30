@@ -1,60 +1,52 @@
-#include "iostream"
-#include "string"
 #include "Piloto.h"
 
-    Piloto() {
-        nombre = "";
-        equipo = "";
-        punto = 0;
-        edad = 0;
-        estadoFisico = "";
-    }
-    
-    Piloto(string n, string e, int p, int ed, string ef) {
-        nombre = n;
-        equipo = e;
-        punto = p;
-        edad = ed;
-        estadoFisico = ef;
-    }
+Piloto::Piloto(std::string nombre)
+: nombrePiloto(nombre), puntuacion(0), posicion(0), equipo(), carrera() {}
 
-    string getNombre() const {
-        return nombre;
-    }
-    
-    string getEquipo() const {
-        return equipo;
-    }
-    
-    int getPuntos() const {
-        return punto;
-    }
-    
-    int getEdad() const {
-        return edad;
-    }
-    
-    string getEstadoFisico() const {
-        return estadoFisico;
-    }
-    
-    void setNombre(string n) {
-        nombre = n;
-    }
-    
-    void setEquipo(string e) {
-        equipo = e;
-    }
-    
-    void setPuntos(int p) {
-        punto = p;
-    }
-    
-    void setEdad(int ed) {
-        edad = ed;
-    }
-    
-    void setEstadoFisico(string ef) {
-        estadoFisico = ef;
-    }
-};
+std::string Piloto::getNombrePiloto() {
+    return nombrePiloto;
+}
+
+void Piloto::setNombrePiloto(std::string nombre) {
+    nombrePiloto = nombre;
+}
+
+int Piloto::getPuntuacion() {
+    return puntuacion;
+}
+
+void Piloto::setPuntuacion(int puntuacion) {
+    this->puntuacion = puntuacion;
+}
+
+void Piloto::aumentarPuntuacion(int puntuacion) {
+    this->puntuacion += puntuacion;
+}
+
+void Piloto::disminuirPuntuacion(int puntuacion) {
+    this->puntuacion -= puntuacion;
+}
+
+int Piloto::getPosicion() {
+    return posicion;
+}
+
+void Piloto::setPosicion(int posicion) {
+    this->posicion = posicion;
+}
+
+Equipo Piloto::getEquipo() {
+    return equipo;
+}
+
+void Piloto::setEquipo(Equipo equipo) {
+    this->equipo = equipo;
+}
+
+Carrera Piloto::getCarrera() {
+    return carrera;
+}
+
+void Piloto::setCarrera(Carrera carrera) {
+    this->carrera = carrera;
+}
