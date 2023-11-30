@@ -1,58 +1,29 @@
-#include "circuito.h"
 
-    Circuito() {
-        nombre = "";
-        longitud = 0;
-        curva = 0;
-        recordDelCircuito = 0.0;
-        ultimoPoledelCircuito = "";
-    }
+#include "Circuito.h"
 
-    Circuito(string n, int l, int c, double r, string u) {
-        nombre = n;
-        longitud = l;
-        curva = c;
-        recordDelCircuito = r;
-        ultimoPoledelCircuito = u;
-    }
+Circuito::Circuito(std::string nombreCircuito, std::string ubicacion, float recordCircuito)
+    : nombreCircuito(nombreCircuito), ubicacion(ubicacion), recordCircuito(recordCircuito) {}
 
-    string getNombre() const {
-        return nombre;
-    }
+std::string Circuito::getNombreCircuito() {
+    return nombreCircuito;
+}
 
-    int getLongitud() const {
-        return longitud;
-    }
+void Circuito::setNombreCircuito(std::string nombre) {
+    nombreCircuito = nombre;
+}
 
-    int getCurva() const {
-        return curva;
-    }
+std::string Circuito::getUbicacion() {
+    return ubicacion;
+}
 
-    double getRecordDelCircuito() const {
-        return recordDelCircuito;
-    }
+void Circuito::setUbicacion(std::string ubicacion) {
+    this->ubicacion = ubicacion;
+}
 
-    string getUltimoPoledelCircuito() const {
-        return ultimoPoledelCircuito;
+void Circuito::actualizarRecord(float tiempo) {
+    if (tiempo < recordCircuito) {
+        recordCircuito = tiempo;
     }
+}
 
-    void setLongitud(int l) {
-        longitud = l;
-    }
 
-    void setNombre(string n) {
-        nombre = n;
-    }
-
-    void setCurva(int c) {
-        curva = c;
-    }
-
-    void setRecordDelCircuito(double r) {
-        recordDelCircuito = r;
-    }
-
-    void setUltimoPoledelCircuito(string u) {
-        ultimoPoledelCircuito = u;
-    }
-};
