@@ -1,28 +1,26 @@
-#include "iostream"
-#include "string"
+#ifndef EQUIPO_H
+#define EQUIPO_H
+
+#include <vector>
+#include <string>
+#include "Piloto.h"
 
 class Equipo{
+    public:
+        Equipo(std::string nombreEquipo);
 
-  private:
-    string nombre;
-    int puntuacion;
-    string nombreDeIntegrante;
+        std::string getNombreEquipo();
+        void setNombreEquipo(std::string nombre);
 
-  public:
-    Equipo();
-    Equipo(string, int, string);
+        void agregarPiloto(Piloto piloto);
+        int getPuntuacionEquipo();
 
-    string getNombreDeIntegrante() const;
-    int getPuntuacion() const;
-    string getNombre() const;
+        void calcularPuntuacionTotal();
 
-    void setNombre(string);
-    void setPuntuacion(int);
-    void setNombreDeIntegrante(string);
-
-    void aumentarPuntuacion(int);
-    void disminuirPuntuacion(int);
-    void mostrarDetalles() const;
-
-
+    private:
+        std::string nombreEquipo;
+        std::vector<Piloto> integrantesEquipo;
+        int puntuacionEquipo;
 };
+
+#endif // EQUIPO_H
