@@ -1,43 +1,27 @@
-Equipo(string nombre, int puntuacion, string nombreDeIntegrante){
-  nombre = nombre;
-  puntuacion = puntuacion;
-  nombreDeIntegrante = nombreDeIntegrante;
-};
+#include "Equipo.h"
 
-string getNombreDeIntegrante() const{
-  return nombreDeIntegrante;
-};
+Equipo::Equipo(std::string nombreEquipo)
+: nombreEquipo(nombreEquipo), integrantesEquipo(), puntuacionEquipo(0) {}
 
-int getPuntuacion() const{
-  return puntuacion;
-};
+std::string Equipo::getNombreEquipo() {
+    return nombreEquipo;
+}
 
-string getNombre() const{
-  return nombre;
-};
+void Equipo::setNombreEquipo(std::string nombre) {
+    nombreEquipo = nombre;
+}
 
-void setNombre(string nombre){
-  nombre = nombre;
-};
+void Equipo::agregarPiloto(Piloto piloto) {
+    integrantesEquipo.push_back(piloto);
+}
 
-void setPuntuacion(int puntuacion){
-  puntuacion = puntuacion;
-};
+int Equipo::getPuntuacionEquipo() {
+    return puntuacionEquipo;
+}
 
-void setNombreDeIntegrante(string nombreDeIntegrante){
-  nombreDeIntegrante = nombreDeIntegrante;
-};
-
-void aumentarPuntuacion(int puntos){
-  puntuacion += puntos;
-};
-
-void disminuirPuntuacion(int puntos){
-  puntuacion -= puntos;
-};
-
-void mostrarDetalles() const{
-  cout << "Nombre del Equipo: " << nombre << endl;
-  cout << "Puntuacion: " << puntuacion << endl;
-  cout << "Nombre del Integrante: " << nombreDeIntegrante << endl;
-};
+void Equipo::calcularPuntuacionTotal() {
+    puntuacionEquipo = 0;
+    for (Piloto piloto : integrantesEquipo) {
+        puntuacionEquipo += piloto.getPuntuacion();
+    }
+}
