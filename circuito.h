@@ -1,29 +1,23 @@
-#include "iostream"
-#include "string"
+#ifndef CIRCUITO_H
+#define CIRCUITO_H
+#include <string>
 
-class Circuito{
+class Circuito {
+public:
+    Circuito(std::string nombreCircuito, std::string ubicacion, float recordCircuito);
 
-  private:
-    string nombre;
-    int longitud;
-    int curva;
-    double recordDelCircuito;
-    string ultimoPoledelCircuito; 
+    std::string getNombreCircuito();
+    void setNombreCircuito(std::string nombre);
 
-  public:
-    Circuito();
-    Circuito(string, int, int, double, string);
+    std::string getUbicacion();
+    void setUbicacion(std::string ubicacion);
 
+    void actualizarRecord(float tiempo);
 
-    string getNombre() const;
-    int getLongitud() const;
-    int getCurva() const;
-    double getRecordDelCircuito() const;
-    string getUltimoPoledelCircuito() const;
-    
-    void setNombre(string);
-    void setLongitud(int);
-    void setCurva(int);
-    void setRecordDelCircuito(double);
-    void setUltimoPoledelCircuito(string);
+private:
+    std::string nombreCircuito;
+    std::string ubicacion;
+    float recordCircuito;
 };
+
+#endif // CIRCUITO_H
