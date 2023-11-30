@@ -1,31 +1,33 @@
-#include "iostream"
-#include "string"
-//#include "equipo.h"
+#include <string>
+#include "Equipo.h"
+#include "Carrera.h"
 
-class Piloto{
+class Piloto {
+public:
+    Piloto(std::string nombre);
 
-    private:
-    string nombre;
-    string equipo;
-    int punto;
-    int edad;
-    string estadoFisico;
+    std::string getNombrePiloto();
+    void setNombrePiloto(std::string nombre);
 
-    public:
+    int getPuntuacion();
+    void setPuntuacion(int puntuacion);
 
-    Piloto();
-    Piloto(string, string, int, int, string);
+    void aumentarPuntuacion(int puntuacion);
+    void disminuirPuntuacion(int puntuacion);
 
-    string getNombre() const;
-    string getEquipo() const;
-    int getPuntos() const;
-    int getEdad() const;
-    string getEstadoFisico() const;
-    
-    void setNombre(string);
-    void setEquipo(string);
-    void setPuntos(int);
-    void setEdad(int);
-    void setEstadoFisico(string);
+    int getPosicion();
+    void setPosicion(int posicion);
+
+    Equipo getEquipo();
+    void setEquipo(Equipo equipo);
+
+    Carrera getCarrera();
+    void setCarrera(Carrera carrera);
+
+private:
+    std::string nombrePiloto;
+    int puntuacion;
+    int posicion;
+    Equipo equipo;
+    Carrera carrera;
 };
-
